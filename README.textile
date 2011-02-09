@@ -1,0 +1,28 @@
+h1. Adds Passenger Monitoring to Server Density
+
+Installation
+
+* Head to  https://youraccount.serverdensity.com/plugins/ and Add new plugin
+* Add a plugin called Passenger
+* Edit the Passenger plugin and enter these groups for the graphs:
+
+Title: Status
+max_application_instances
+count_application_instances
+active_application_instances
+inactive_application_instances
+waiting_on_global_queue
+
+Title: Processes
+processes
+
+Title: Memory
+passenger_watchdog_rss_mb
+passenger_helper_agent_rss_mb
+passenger_spawn_server_rss_mb
+passenger_login_agent_rss_mb
+total_rss_mb
+
+* Configure your agent so that it knows about plugins http://www.serverdensity.com/docs/agent/plugins/ 
+* Move Passenger.py into that directory 
+* Restart the agent (service sd-agent restart)
