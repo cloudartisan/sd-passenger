@@ -21,7 +21,7 @@ passenger_watchdog_rss_mb
 passenger_helper_agent_rss_mb
 passenger_spawn_server_rss_mb
 passenger_login_agent_rss_mb
-total_rss_mb
+total_private_dirty_rss_mb
 
 * Configure your agent so that it knows about plugins http://www.serverdensity.com/docs/agent/plugins/ 
 * Move Passenger.py into that directory 

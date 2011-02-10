@@ -54,7 +54,7 @@ class Passenger:
         # interested in
         in_passenger_processes = False
         stats['processes'] = None
-        stats['total_rss_mb'] = None
+        stats['total_private_dirty_rss_mb'] = None
         for line in out.splitlines():
             # Make sure we jump past the sections about Apache and Nginx,
             # straight to the Passenger section
@@ -68,9 +68,9 @@ class Passenger:
                 stats['processes'] = int(processes_match.group(1))
             # Total RSS used by passenger and rails processes.  Eg,
             # ### Total private dirty RSS: 2266.23 MB
-            total_rss_mb_match = re.match('### Total private dirty RSS: (\d+\.?\d+) MB', line)
-            if total_rss_mb_match:
-                stats['total_rss_mb'] = float(total_rss_mb_match.group(1))
+            total_private_dirty_rss_mb_match = re.match('### Total private dirty RSS: (\d+\.?\d+) MB', line)
+            if total_private_dirty_rss_mb_match:
+                stats['total_private_dirty_rss_mb'] = float(total_private_dirty_rss_mb_match.group(1))
                 
         return stats
 
